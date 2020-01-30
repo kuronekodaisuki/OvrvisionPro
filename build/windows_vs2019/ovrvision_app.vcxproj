@@ -297,7 +297,6 @@
   <ItemGroup>
     <ProjectReference Include="ovrvision.vcxproj">
       <Project>{93964603-90de-4ea0-9bbb-816e91aa6d4e}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

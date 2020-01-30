@@ -17,7 +17,9 @@
 /////////// INCLUDE ///////////
 
 #include "ovrvision_ar.h"
+#if CV_MAJOR_VERSION == 4
 #include <opencv2/imgproc/types_c.h>
+#endif
 
 /////////// VARS AND DEFS ///////////
 

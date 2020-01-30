@@ -17,15 +17,15 @@
 #include "ovrvision_tracking.h"
 
 #pragma warning(disable : 4819)
-#include <opencv2/core.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/imgproc/imgproc_c.h>
-#include <opencv2/highgui.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #if CV_MAJOR_VERSION == 4
+#include <opencv2/imgproc/imgproc_c.h>
 #define CV_LOAD_IMAGE_UNCHANGED cv::IMREAD_UNCHANGED
-#endif
-#pragma warning(default : 4819)
+#else
+#include <opencv/cv.h>
+#endif#pragma warning(default : 4819)
 
 //for cv::imshow
 #ifdef _DEBUG
@@ -36,7 +36,7 @@
 #pragma comment(lib, "libjpeg-turbod.lib")
 #else
 #pragma comment(lib, "libjpegd.lib")
-#endif
+#endif#pragma comment(lib, "libjpegd.lib")
 #pragma comment(lib, "libpngd.lib")
 #pragma comment(lib, "libtiffd.lib")
 #pragma comment(lib, "libwebpd.lib")
@@ -51,7 +51,7 @@
 #pragma comment(lib, "libjpeg-turbo.lib")
 #else
 #pragma comment(lib, "libjpeg.lib")
-#endif
+#endif#pragma comment(lib, "libjpeg.lib")
 #pragma comment(lib, "libpng.lib")
 #pragma comment(lib, "libtiff.lib")
 #pragma comment(lib, "libwebp.lib")
