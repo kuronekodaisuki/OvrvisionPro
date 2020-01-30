@@ -39,10 +39,12 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\OpenCV_4.1.2.props" />
+    <Import Project="OpenCV_4.1.2.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\OpenCV_4.1.2.props" />
+    <Import Project="OpenCV_4.1.2.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -92,12 +94,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ovrvision.vcxproj">
-      <Project>{93964603-90de-4ea0-9bbb-816e91aa6d4e}</Project>
-    </ProjectReference>
+    <ClCompile Include="ovrvision_test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\ovrvision_test.cpp" />
+    <ProjectReference Include="ovrvision.vcxproj">
+      <Project>{93964603-90de-4ea0-9bbb-816e91aa6d4e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

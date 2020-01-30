@@ -1,5 +1,8 @@
 .metadata
 <<<<<<< HEAD
+/3rdparty/OculusSDKv1_3_2
+/3rdparty/OculusSDKv1_8
+/3rdparty/opencv
 /bin/calibtool
 /bin/csharp_x86
 /bin/x64
