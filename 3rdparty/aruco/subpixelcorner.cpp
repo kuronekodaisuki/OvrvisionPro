@@ -1,5 +1,6 @@
 #include "subpixelcorner.h"
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/core/types_c.h>
 using namespace cv;
 
 namespace aruco {
@@ -39,7 +40,7 @@ void SubPixelCorner::checkTerm() {
     _max_iters = std::min(_max_iters, max1);
 }
 
-double SubPixelCorner::pointDist(cv::Point2f estimate_corner, cv::Point2f cuer) {
+double SubPixelCorner::pointDist(cv::Point2f estimate_corner, cv::Point2f curr_corner) {
     double dist = ((curr_corner.x - estimate_corner.x) * (curr_corner.x - estimate_corner.x)) +
                   ((curr_corner.y - estimate_corner.y) * (curr_corner.y - estimate_corner.y));
     return dist;
