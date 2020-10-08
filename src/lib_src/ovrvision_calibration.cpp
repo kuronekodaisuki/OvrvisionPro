@@ -108,8 +108,8 @@ namespace OVR
 		memcpy(src_left.data, left_img, sizeof(unsigned char) * m_image_size.width * m_image_size.height * OV_RGB_DATASIZE);
 		memcpy(src_right.data, right_img, sizeof(unsigned char) * m_image_size.width * m_image_size.height * OV_RGB_DATASIZE);
 
-		cv::cvtColor(src_left, src_gray_left, CV_BGRA2GRAY);
-		cv::cvtColor(src_right, src_gray_right, CV_BGRA2GRAY);
+		cv::cvtColor(src_left, src_gray_left, COLOR_BGRA2GRAY);
+		cv::cvtColor(src_right, src_gray_right, COLOR_BGRA2GRAY);
 
 		//Detect
 		std::vector<cv::Point2f> current_corners_left;
@@ -120,7 +120,7 @@ namespace OVR
 
 		if (m_isFound[OV_CAMEYE_LEFT] && m_isFound[OV_CAMEYE_RIGHT])
 		{
-			cv::TermCriteria criteria(CV_TERMCRIT_ITER | CV_TERMCRIT_EPS, 20, 0.001);
+			cv::TermCriteria criteria(TermCriteria::MAX_ITER | TermCriteria::EPS, 20, 0.001);
 
 			//Left image
 			cv::cornerSubPix(src_gray_left, current_corners_left, cv::Size(11, 11), cv::Size(-1, -1), criteria);
@@ -229,13 +229,13 @@ namespace OVR
 			fovx, m_cameraCalibration[OV_CAMEYE_RIGHT].fovY, m_cameraCalibration[OV_CAMEYE_RIGHT].focalPoint, principalPoint, aspectRatio);
 
 		//intrinsic parameters
-		cv::TermCriteria criteria(CV_TERMCRIT_ITER | CV_TERMCRIT_EPS, 20, 0.001);
+		cv::TermCriteria criteria(TermCriteria::MAX_ITER | TermCriteria::EPS, 20, 0.001);
 
 		double rms = cv::stereoCalibrate(object_points, image_points1, image_points2,
 			m_cameraCalibration[OV_CAMEYE_LEFT].intrinsic, m_cameraCalibration[OV_CAMEYE_LEFT].distortion,
 			m_cameraCalibration[OV_CAMEYE_RIGHT].intrinsic, m_cameraCalibration[OV_CAMEYE_RIGHT].distortion,
 			m_image_size, m_relate_rot, m_relate_trans, m_E, m_F,
-			CV_CALIB_RATIONAL_MODEL | CV_CALIB_USE_INTRINSIC_GUESS | CV_CALIB_FIX_PRINCIPAL_POINT, criteria);
+			cv::CALIB_RATIONAL_MODEL | cv::CALIB_USE_INTRINSIC_GUESS | cv::CALIB_FIX_PRINCIPAL_POINT, criteria);
 
 		//Rectification
 		StereoRectificationMatrix();
@@ -288,7 +288,7 @@ namespace OVR
 
 #endif
 		if (param_output) {
-			FileStorage cvfs("./ovrvision_param_output.xml", CV_STORAGE_WRITE | CV_STORAGE_FORMAT_XML);
+			FileStorage cvfs("./ovrvision_param_output.xml", cv::FileStorage::WRITE | cv::FileStorage::FORMAT_XML);
 			write(cvfs, "PixelSize", ovrset.m_pixelSize);
 			write(cvfs, "LeftCameraInstric", ovrset.m_leftCameraInstric);
 			write(cvfs, "RightCameraInstric", ovrset.m_rightCameraInstric);

@@ -1605,8 +1605,8 @@ namespace OVR
 			std::vector<std::vector<Point> > contours;
 
 			split(HSV[eye], separate[eye]);
-			threshold(separate[eye][0], bilevel[eye], 30, 255, CV_THRESH_BINARY_INV);	// Red part
-			threshold(separate[eye][1], work[eye], 80, 255, CV_THRESH_BINARY);		// High saturation part
+			threshold(separate[eye][0], bilevel[eye], 30, 255, cv::THRESH_BINARY_INV);	// Red part
+			threshold(separate[eye][1], work[eye], 80, 255, cv::THRESH_BINARY);		// High saturation part
 			multiply(bilevel[eye], work[eye], bilevel[eye]);
 			Canny(bilevel[eye], bilevel[eye], 60, 200);
 			findContours(bilevel[eye], contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE);
@@ -1804,10 +1804,10 @@ namespace OVR
 				}
 
 				sprintf(buffer, COUNTDOWN_MESSAGE, _frameCounter);
-				putText(_left, buffer, Point(0, height - 5), CV_FONT_HERSHEY_TRIPLEX, 0.7, Scalar(0, 0, 255), 1, CV_AA);
-				putText(_right, buffer, Point(0, height - 5), CV_FONT_HERSHEY_TRIPLEX, 0.7, Scalar(0, 0, 255), 1, CV_AA);
-				putText(_left, ESTIMATION_INSTRUCTION, Point(10, height / 2), CV_FONT_HERSHEY_TRIPLEX, 0.7, Scalar(0, 0, 255), 1, CV_AA);
-				putText(_right, ESTIMATION_INSTRUCTION, Point(10, height / 2), CV_FONT_HERSHEY_TRIPLEX, 0.7, Scalar(0, 0, 255), 1, CV_AA);
+				putText(_left, buffer, Point(0, height - 5), cv::FONT_HERSHEY_TRIPLEX, 0.7, Scalar(0, 0, 255), 1, LINE_AA);
+				putText(_right, buffer, Point(0, height - 5), cv::FONT_HERSHEY_TRIPLEX, 0.7, Scalar(0, 0, 255), 1, LINE_AA);
+				putText(_left, ESTIMATION_INSTRUCTION, Point(10, height / 2), cv::FONT_HERSHEY_TRIPLEX, 0.7, Scalar(0, 0, 255), 1, LINE_AA);
+				putText(_right, ESTIMATION_INSTRUCTION, Point(10, height / 2), cv::FONT_HERSHEY_TRIPLEX, 0.7, Scalar(0, 0, 255), 1, LINE_AA);
 
 				if (_frameCounter == 0)
 				{
@@ -1820,8 +1820,8 @@ namespace OVR
 			{
 				_frameCounter--;
 				sprintf(buffer, "H:%d - %d S:%d - %d", _h_low, _h_high, _s_low, _s_high);
-				putText(_left, buffer, Point(0, height - 5), CV_FONT_HERSHEY_TRIPLEX, 1, Scalar(0, 0, 255));
-				putText(_right, ESTIMATED_MESSAGE, Point(0, height - 5), CV_FONT_HERSHEY_TRIPLEX, 1, Scalar(0, 0, 255));
+				putText(_left, buffer, Point(0, height - 5), cv::FONT_HERSHEY_TRIPLEX, 1, Scalar(0, 0, 255));
+				putText(_right, ESTIMATED_MESSAGE, Point(0, height - 5), cv::FONT_HERSHEY_TRIPLEX, 1, Scalar(0, 0, 255));
 			}
 			return false;
 		}

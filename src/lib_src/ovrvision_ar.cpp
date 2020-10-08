@@ -182,10 +182,10 @@ void OvrvisionAR::Render()
 	if (m_pImageSrc != NULL) {
 		pCamBGRAImg = cv::Mat(cv::Size(m_width, m_height), CV_MAKETYPE(CV_8U, OV_RGB_DATASIZE), m_pImageSrc);
 		//convert color
-		cv::cvtColor(pCamBGRAImg, pGrayImg, CV_BGRA2GRAY);
+		cv::cvtColor(pCamBGRAImg, pGrayImg, cv::COLOR_BGRA2GRAY);
 	}
 	else {
-		cv::cvtColor((*m_pImageOpenCVMat), pGrayImg, CV_BGRA2GRAY);
+		cv::cvtColor((*m_pImageOpenCVMat), pGrayImg, cv::COLOR_BGRA2GRAY);
 	}
 
 	//detect

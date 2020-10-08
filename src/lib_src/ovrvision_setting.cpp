@@ -73,7 +73,7 @@ bool OvrvisionSetting::ReadEEPROM() {
 	if (m_pSystem == NULL)
 		return false;
 
-	cv::FileStorage cvfs(".\\ovrvisionpro_conf.xml", CV_STORAGE_READ | CV_STORAGE_FORMAT_XML);
+	cv::FileStorage cvfs(".\\ovrvisionpro_conf.xml", cv::FileStorage::READ | cv::FileStorage::FORMAT_XML);
 
 	if (!cvfs.isOpened())
 	{

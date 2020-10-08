@@ -17,7 +17,7 @@
 #include "ovrvision_tracking.h"
 
 #pragma warning(disable : 4819)
-#include <opencv/cv.h>
+//#include <opencv/cv.h>
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -89,8 +89,8 @@ OvrvisionTracking::OvrvisionTracking(int w, int h, float focalpoint)
 	m_pos_z = 0.0f;
 
 	cv::Mat dat = cv::Mat(cv::Size(sizeof(g_handImage), 1), CV_MAKETYPE(CV_8U, 1), g_handImage);
-	g_pImageHandCalib = cv::imdecode(dat, CV_LOAD_IMAGE_UNCHANGED);
-	cv::cvtColor(g_pImageHandCalib, g_pImageHandCalib, CV_RGB2BGRA);
+	g_pImageHandCalib = cv::imdecode(dat, cv::IMREAD_UNCHANGED);
+	cv::cvtColor(g_pImageHandCalib, g_pImageHandCalib, cv::COLOR_RGB2BGRA);
 	
 	m_set = false;
 }
@@ -138,12 +138,12 @@ void OvrvisionTracking::Render(bool calib, bool debug) {
 
 	//変換
 	cv::Mat pCamBGR_L(pCamBGRAResize_L.size(), CV_MAKETYPE(CV_8U, 3));
-	cv::cvtColor(pCamBGRAResize_L, pCamBGR_L, CV_BGRA2BGR);		// BGRA->BGR変換
-	cv::cvtColor(pCamBGR_L, pCamBGR_L, CV_BGR2HLS);				// BGR->HLS変換
+	cv::cvtColor(pCamBGRAResize_L, pCamBGR_L, cv::COLOR_BGRA2BGR);		// BGRA->BGR変換
+	cv::cvtColor(pCamBGR_L, pCamBGR_L, cv::COLOR_BGR2HLS);				// BGR->HLS変換
 
 	cv::Mat pCamBGR_R(pCamBGRAResize_R.size(), CV_MAKETYPE(CV_8U, 3));
-	cv::cvtColor(pCamBGRAResize_R, pCamBGR_R, CV_BGRA2BGR);		// BGRA->BGR変換
-	cv::cvtColor(pCamBGR_R, pCamBGR_R, CV_BGR2HLS);				// BGR->HLS変換
+	cv::cvtColor(pCamBGRAResize_R, pCamBGR_R, cv::COLOR_BGRA2BGR);		// BGRA->BGR変換
+	cv::cvtColor(pCamBGR_R, pCamBGR_R, cv::COLOR_BGR2HLS);				// BGR->HLS変換
 
 	//抽出済みの２値
 	cv::Mat pCamExtractionImg_L(pCamBGR_L.size(), CV_MAKETYPE(CV_8U, 1));
@@ -204,7 +204,7 @@ void OvrvisionTracking::Render(bool calib, bool debug) {
 		m_set = false;
 	}
 
-	cv::cvtColor(pCamBGR_L, pCamBGR_L, CV_HLS2BGR);				// 変換
+	cv::cvtColor(pCamBGR_L, pCamBGR_L, cv::COLOR_HLS2BGR);				// 変換
 
 
 	//Default camera matrix
@@ -236,7 +236,7 @@ void OvrvisionTracking::Render(bool calib, bool debug) {
 	cameramat.at<float>(7) = 0.0f;
 	cameramat.at<float>(8) = 1.0f;
 
-	cv::invert(cameramat, cameramat_inv, CV_LU);
+	cv::invert(cameramat, cameramat_inv, cv::DECOMP_LU);
 
 	if (lpos.x != 0 && lpos.y != 0) {
 		if (rpos.x != 0 && rpos.y != 0) {

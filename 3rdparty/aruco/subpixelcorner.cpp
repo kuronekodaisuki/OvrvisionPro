@@ -9,25 +9,25 @@ SubPixelCorner::SubPixelCorner() {
     _apertureSize = 3;
     _term.maxCount = 10;
     _term.epsilon = 0.1;
-    _term.type = CV_TERMCRIT_ITER | CV_TERMCRIT_EPS;
+    _term.type = TermCriteria::MAX_ITER | TermCriteria::EPS;
     enable = true;
 }
 
 void SubPixelCorner::checkTerm() {
     switch (_term.type) {
-    case CV_TERMCRIT_ITER:
+    case TermCriteria::MAX_ITER:
         _term.epsilon = 0.f;
         _term.maxCount;
         break;
-    case CV_TERMCRIT_EPS:
+    case TermCriteria::EPS:
         _term.maxCount = _term.COUNT;
         break;
-    case CV_TERMCRIT_ITER | CV_TERMCRIT_EPS:
+    case TermCriteria::MAX_ITER | TermCriteria::EPS:
         break;
     default:
         _term.maxCount = _term.COUNT;
         _term.epsilon = 0.1;
-        _term.type = CV_TERMCRIT_ITER | CV_TERMCRIT_EPS;
+        _term.type = TermCriteria::MAX_ITER | TermCriteria::EPS;
         break;
     }
 
@@ -39,7 +39,7 @@ void SubPixelCorner::checkTerm() {
     _max_iters = std::min(_max_iters, max1);
 }
 
-double SubPixelCorner::pointDist(cv::Point2f estimate_corner, cv::Point2f curr_corner) {
+double SubPixelCorner::pointDist(cv::Point2f estimate_corner, cv::Point2f cuer) {
     double dist = ((curr_corner.x - estimate_corner.x) * (curr_corner.x - estimate_corner.x)) +
                   ((curr_corner.y - estimate_corner.y) * (curr_corner.y - estimate_corner.y));
     return dist;
