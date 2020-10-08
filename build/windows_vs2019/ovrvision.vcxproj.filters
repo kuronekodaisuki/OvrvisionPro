@@ -76,6 +76,9 @@
     <ClCompile Include="..\..\3rdparty\aruco\subpixelcorner.cpp">
       <Filter>ソース ファイル\aruco</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\lib_src\ovrvision_ar.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\lib_src\ovrvision_calibration.h">
@@ -144,6 +147,7 @@
     <ClInclude Include="..\..\3rdparty\aruco\subpixelcorner.h">
       <Filter>ソース ファイル\aruco</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\ovrvision_ar.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\lib_src\ovrvision_avf.m">

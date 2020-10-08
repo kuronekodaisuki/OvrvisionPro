@@ -326,6 +326,7 @@
     <ClCompile Include="..\..\3rdparty\aruco\markerdetector.cpp" />
     <ClCompile Include="..\..\3rdparty\aruco\subpixelcorner.cpp" />
     <ClCompile Include="..\..\src\lib_src\OpenCL.cpp" />
+    <ClCompile Include="..\..\src\lib_src\ovrvision_ar.cpp" />
     <ClCompile Include="..\..\src\lib_src\ovrvision_ar_metaio.cpp" />
     <ClCompile Include="..\..\src\lib_src\ovrvision_calibration.cpp" />
     <ClCompile Include="..\..\src\lib_src\ovrvision_csharp.cpp" />
@@ -349,6 +350,7 @@
     <ClInclude Include="..\..\3rdparty\aruco\marker.h" />
     <ClInclude Include="..\..\3rdparty\aruco\markerdetector.h" />
     <ClInclude Include="..\..\3rdparty\aruco\subpixelcorner.h" />
+    <ClInclude Include="..\..\include\ovrvision_ar.h" />
     <ClInclude Include="..\..\include\ovrvision_pro.h" />
     <ClInclude Include="..\..\include\ovrvision_tracking.h" />
     <ClInclude Include="..\..\src\lib_src\OpenCL_kernel.h" />
