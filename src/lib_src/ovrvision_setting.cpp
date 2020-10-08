@@ -181,7 +181,7 @@ bool OvrvisionSetting::ReadEEPROM() {
 		int mode = 0;
 
 		//get data node
-		cv::FileNode data(cvfs.fs, NULL);
+		cv::FileNode data(cvfs.root());
 
 		mode = data["Mode"];
 
