@@ -43,9 +43,6 @@
     <ClCompile Include="..\..\src\lib_src\ovrvision_tracking.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\lib_src\ovrvision_v4l.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\3rdparty\aruco\ar_omp.cpp">
       <Filter>ソース ファイル\aruco</Filter>
     </ClCompile>
@@ -106,9 +103,6 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\lib_src\ovrvision_handimage.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\lib_src\ovrvision_v4l.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\3rdparty\aruco\ar_omp.h">

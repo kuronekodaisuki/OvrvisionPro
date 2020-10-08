@@ -177,13 +177,13 @@
       </AdditionalUsingDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>OpenGL32.lib;strmiids.lib;ippicvmt.lib;opencv_calib3d300d.lib;opencv_core300d.lib;opencv_hal300d.lib;opencv_features2d300d.lib;opencv_flann300d.lib;opencv_highgui300d.lib;opencv_imgcodecs300d.lib;opencv_imgproc300d.lib;opencv_ml300d.lib;opencv_objdetect300d.lib;opencv_photo300d.lib;opencv_shape300d.lib;opencv_stitching300d.lib;opencv_superres300d.lib;opencv_video300d.lib;opencv_videoio300d.lib;opencv_videostab300d.lib;zlibd.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)ovrvisiond.dll</OutputFile>
-      <AdditionalLibraryDirectories>.\..\..\3rdparty\opencv\build\x64\vc16\staticlib;.\..\..\3rdparty\opencl\amd\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>.\..\..\3rdparty;.\..\..\3rdparty\x64;.\..\..\3rdparty\\OpenCL\amd\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
       <ImportLibrary>$(OutDir)ovrvision64d.lib</ImportLibrary>
+      <AdditionalDependencies>OpenGL32.lib;strmiids.lib;ippicvmt.lib;zlib.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>If Exist $(TargetDir)\ovrvision.dll copy $(TargetDir)\ovrvision.dll $(SolutionDir)..\all_unity5\Assets\OvrvisionPro\Plugins\x86_64\ovrvision.dll /Y /B</Command>
@@ -255,7 +255,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>.\..\..\include;.\..\..\3rdparty\aruco;.\..\..\3rdparty\opencl\amd\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\..\..\include;.\..\..\3rdparty;.\..\..\3rdparty\aruco;.\..\..\3rdparty\opencl\amd\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_OVRVISION_EXPORTS;OPENCV_VERSION_3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -268,13 +268,13 @@
     <Link>
       <AdditionalDependencies>OpenGL32.lib;strmiids.lib;ippicvmt.lib;zlib.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)ovrvision.dll</OutputFile>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX64</TargetMachine>
       <ImportLibrary>$(OutDir)ovrvision64.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>.\..\..\3rdparty;.\..\..\3rdparty\x64;.\..\..\3rdparty\\OpenCL\amd\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>If Exist $(TargetDir)\ovrvision.dll copy $(TargetDir)\ovrvision.dll $(SolutionDir)..\all_unity5\Assets\OvrvisionPro\Plugins\x86_64\ovrvision.dll /Y /B</Command>
@@ -334,7 +334,6 @@
     <ClCompile Include="..\..\src\lib_src\ovrvision_pro.cpp" />
     <ClCompile Include="..\..\src\lib_src\ovrvision_setting.cpp" />
     <ClCompile Include="..\..\src\lib_src\ovrvision_tracking.cpp" />
-    <ClCompile Include="..\..\src\lib_src\ovrvision_v4l.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\3rdparty\aruco\aruco.h" />
@@ -359,7 +358,6 @@
     <ClInclude Include="..\..\src\lib_src\ovrvision_ds.h" />
     <ClInclude Include="..\..\src\lib_src\ovrvision_handimage.h" />
     <ClInclude Include="..\..\src\lib_src\ovrvision_setting.h" />
-    <ClInclude Include="..\..\src\lib_src\ovrvision_v4l.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\lib_src\ovrvision_avf.m" />
