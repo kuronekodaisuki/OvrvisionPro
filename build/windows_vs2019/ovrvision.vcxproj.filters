@@ -144,6 +144,8 @@
     <ClInclude Include="..\..\3rdparty\aruco\subpixelcorner.h">
       <Filter>ソース ファイル\aruco</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\ovrvision_ar.h" />
+    <ClInclude Include="..\..\include\ovrvision_ar.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
