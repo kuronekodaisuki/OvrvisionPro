@@ -12,8 +12,8 @@
       <AdditionalIncludeDirectories>$(OPENCV_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(OPENCV_DIR)\x64\vc16\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_world420d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OPENCV_DIR)\x64\vc15\staticlib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>IlmImfd.lib;ittnotifyd.lib;ippicvmt.lib;ippiwd.lib;libjpeg-turbod.lib;libtiffd.lib;libpngd.lib;libjasperd.lib;libwebpd.lib;zlib.lib;opencv_calib3d420d.lib;opencv_core420d.lib;opencv_features2d420d.lib;opencv_flann420d.lib;opencv_imgcodecs420d.lib;opencv_imgproc420d.lib;opencv_ml420d.lib;opencv_video420d.lib;opencv_videoio420d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
     </PostBuildEvent>
@@ -26,8 +26,8 @@
       <AdditionalIncludeDirectories>$(OPENCV_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(OPENCV_DIR)\x64\vc16\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_world420.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OPENCV_DIR)\x64\vc15\staticlib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>IlmImf.lib;ittnotify.lib;ippicvmt.lib;ippiw.lib;libjpeg-turbo.lib;libtiff.lib;libpng.lib;libjasper.lib;libwebp.lib;zlib.lib;opencv_calib3d420.lib;opencv_core420.lib;opencv_features2d420.lib;opencv_flann420.lib;opencv_imgcodecs420.lib;opencv_imgproc420.lib;opencv_ml420.lib;opencv_video420.lib;opencv_videoio420.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
     </PostBuildEvent>
