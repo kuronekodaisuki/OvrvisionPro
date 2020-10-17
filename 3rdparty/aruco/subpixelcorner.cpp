@@ -1,9 +1,6 @@
 #include "subpixelcorner.h"
 #include <opencv2/imgproc/imgproc.hpp>
-#if CV_MAJOR_VERSION == 4
 #include <opencv2/core/types_c.h>
-#endif
-
 using namespace cv;
 
 namespace aruco {
@@ -13,25 +10,25 @@ SubPixelCorner::SubPixelCorner() {
     _apertureSize = 3;
     _term.maxCount = 10;
     _term.epsilon = 0.1;
-    _term.type = CV_TERMCRIT_ITER | CV_TERMCRIT_EPS;
+    _term.type = TermCriteria::MAX_ITER | TermCriteria::EPS;
     enable = true;
 }
 
 void SubPixelCorner::checkTerm() {
     switch (_term.type) {
-    case CV_TERMCRIT_ITER:
+    case TermCriteria::MAX_ITER:
         _term.epsilon = 0.f;
         _term.maxCount;
         break;
-    case CV_TERMCRIT_EPS:
+    case TermCriteria::EPS:
         _term.maxCount = _term.COUNT;
         break;
-    case CV_TERMCRIT_ITER | CV_TERMCRIT_EPS:
+    case TermCriteria::MAX_ITER | TermCriteria::EPS:
         break;
     default:
         _term.maxCount = _term.COUNT;
         _term.epsilon = 0.1;
-        _term.type = CV_TERMCRIT_ITER | CV_TERMCRIT_EPS;
+        _term.type = TermCriteria::MAX_ITER | TermCriteria::EPS;
         break;
     }
 

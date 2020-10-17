@@ -29,9 +29,6 @@ or implied, of Rafael Muñoz Salinas.
 #include "highlyreliablemarkers.h"
 #include <iostream>
 using namespace std;
-#if CV_MAJOR_VERSION == 4
-#include <opencv2/imgproc/types_c.h>
-#endif
 
 namespace aruco {
 
@@ -306,7 +303,7 @@ int HighlyReliableMarkers::detect(const cv::Mat &in, int &nRotations) {
     if (in.type() == CV_8UC1)
         grey = in;
     else
-        cv::cvtColor(in, grey, CV_BGR2GRAY);
+        cv::cvtColor(in, grey, cv::COLOR_BGR2GRAY);
     // threshold image
     cv::threshold(grey, grey, 125, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
     _swidth = grey.rows / _ncellsBorder;

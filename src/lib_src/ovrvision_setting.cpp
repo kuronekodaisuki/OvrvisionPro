@@ -18,11 +18,6 @@
 //for eeprom system
 #include "ovrvision_pro.h"
 
-#if CV_MAJOR_VERSION == 4
-#include <opencv2/core/core.hpp>
-#include <opencv2/core/core_c.h>
-#include <opencv2/imgproc/imgproc_c.h>
-#endif
 /////////// VARS AND DEFS ///////////
 
 //Group
@@ -78,11 +73,8 @@ bool OvrvisionSetting::ReadEEPROM() {
 	if (m_pSystem == NULL)
 		return false;
 
-#if CV_MAJOR_VERSION == 4
-	cv::FileStorage cvfs("ovrvisionpro_conf.xml", FileStorage::READ | FileStorage::FORMAT_XML);
-#else
-	cv::FileStorage cvfs("ovrvisionpro_conf.xml", CV_STORAGE_READ | CV_STORAGE_FORMAT_XML);
-#endif
+	cv::FileStorage cvfs(".\\ovrvisionpro_conf.xml", cv::FileStorage::READ | cv::FileStorage::FORMAT_XML);
+
 
 	if (!cvfs.isOpened())
 	{

@@ -23,8 +23,6 @@
 //Marker 
 #ifdef _OVRVISION_EXPORTS
 #include <opencv2/opencv.hpp>
-#if CV_MAJOR_VERSION == 4
-#include <opencv2/calib3d/calib3d_c.h>
 #endif
 //#include <opencv2/ocl/ocl.hpp>
 #else
